@@ -5,4 +5,4 @@
 - Kotlin
 
 ## Result
-- [2021.11.22 Result](result.json)
+- [2021.11.22 Result](https://github.com/revfactory/ifkakao2021stat/blob/main/result-20211122.json)
