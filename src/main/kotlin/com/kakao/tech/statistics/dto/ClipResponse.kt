@@ -1,5 +1,10 @@
 package com.kakao.tech.statistics.dto
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize
+import com.kakao.tech.statistics.utils.EpochLocalDateTimeDeserializer
+import java.time.LocalDateTime
+
 class ClipResponse(
     val playCount: Long,
     val likeCount: Long
@@ -18,7 +23,8 @@ data class ClipView(
     val tagList: List<String> = emptyList(),
     val playCount: Long = 0,
     val likeCount: Long = 0,
-    val createTime: String = ""
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    val createTime: LocalDateTime? = null
 )
 
 fun Clip.toClipView() = ClipView(
