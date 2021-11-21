@@ -1,9 +1,6 @@
 package com.kakao.tech.statistics.service
 
-import com.kakao.tech.statistics.api.toClipWrapper
 import com.kakao.tech.statistics.dto.*
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -35,7 +32,7 @@ class ClipService(
             .onStatus(HttpStatus::isError) {
                 Mono.error(RuntimeException("Connection Failed"))
             }
-            .bodyToMono(ClipMeta::class.java)
+            .bodyToMono(ClipInfo::class.java)
             .map { it.clipLink.clip }
             .awaitSingle()
             .toClipView()

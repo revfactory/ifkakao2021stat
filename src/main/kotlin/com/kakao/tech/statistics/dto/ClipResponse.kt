@@ -11,8 +11,23 @@ fun Clip.toClipResponse() = ClipResponse(
 )
 
 data class ClipView(
+    val id: Long = 0,
+    val title: String = "",
+    val description: String = "",
+    val thumbnailUrl: String = "",
+    val tagList: List<String> = emptyList(),
     val playCount: Long = 0,
-    val likeCount: Long = 0
+    val likeCount: Long = 0,
+    val createTime: String = ""
 )
 
-fun Clip.toClipView() = ClipView(this.playCount, this.likeCount)
+fun Clip.toClipView() = ClipView(
+    id = this.id,
+    title = this.title,
+    description = this.description,
+    thumbnailUrl = this.thumbnailUrl,
+    tagList = this.tagList,
+    playCount = this.playCount,
+    likeCount = this.likeCount,
+    createTime = this.createTime
+)

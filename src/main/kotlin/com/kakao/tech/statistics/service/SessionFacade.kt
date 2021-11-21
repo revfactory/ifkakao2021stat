@@ -13,9 +13,11 @@ class SessionFacade(
 ) {
     suspend fun getSessions(): MultipleSessionView {
         return sessionService.getSessions()
+            .parallel()
             .asFlow()
             .map { mapToSessionView(it) }
             .toList()
+            .sortedByDescending { it.playCount }
             .toMultipleSessionView()
     }
 
