@@ -24,9 +24,13 @@ fun SessionData.toSessionResponse(clipView: ClipView) = SessionResponse(
     likeCount = clipView.likeCount
 )
 
-data class MultipleSessionView(
+class MultipleSessionView(
     val articles: List<SessionResponse> = emptyList(),
     val articlesCount: Int = 0,
 )
 
 fun List<SessionResponse>.toMultipleSessionView() = MultipleSessionView(this, this.size)
+
+class SessionDiffView(
+
+)
